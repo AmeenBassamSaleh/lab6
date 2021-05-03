@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-// import ImgUrl from 'ImgUrl';
+import ImgUrl from './ImgUrl';
 import FormFun from './FormFun';
 
 export class App extends React.Component {
@@ -34,6 +34,7 @@ export class App extends React.Component {
     return (
       <div>
         <FormFun data={this.state.data.display_name} updateUrl={this.updateUrl} urlLocation={this.urlLocation}/>
+        <ImgUrl data={this.state.data}/>
       </div >
     );
   }
