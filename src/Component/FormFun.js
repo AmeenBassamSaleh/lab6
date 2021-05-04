@@ -1,9 +1,9 @@
 import React from 'react';
 // import axios from 'axios';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+// import Form from 'react-bootstrap/Form';
+// import Button from 'react-bootstrap/Button';
+// import Col from 'react-bootstrap/Col';
+// import Row from 'react-bootstrap/Row';
 
 // import ImgUrl from 'ImgUrl';
 
@@ -38,9 +38,9 @@ export class FormFun extends React.Component {
             </Col>
           </Form.Group>
         </Form> */}
-        <p>
+        {/* <p>
           {this.props.data}
-        </p>
+        </p> */}
       </div >
     );
   }

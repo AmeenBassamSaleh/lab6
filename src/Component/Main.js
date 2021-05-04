@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import ImgUrl from './ImgUrl';
 import FormFun from './FormFun';
+import WeatherData from './WeatherData';
 
 export class App extends React.Component {
   constructor(props) {
@@ -9,20 +10,35 @@ export class App extends React.Component {
     this.state = {
       SQUrl: '',
       data: '',
-      show: false
+      show: false,
+      hammoda: {}
     };
   }
 
   urlLocation = async (e) => {
     e.preventDefault();
-    const url = `https://us1.locationiq.com/v1/search.php?key=pk.d90f234971c4a2b3939403bad7bbd862&q=${this.state.SQUrl}&format=json`;
+    try {
+      const url = `https://us1.locationiq.com/v1/search.php?key=pk.d90f234971c4a2b3939403bad7bbd862&q=${this.state.SQUrl}&format=json`;
 
-    const dataAxios = await axios.get(url);
-    this.setState({
-      data: dataAxios.data[0],
-      show: true
-    });
-    console.log(this.state);
+      const expressWeatherUrl = `http://localhost:3333/weather`;
+      const expressReq = await axios.get(expressWeatherUrl);
+
+      const dataAxios = await axios.get(url);
+
+      console.log(expressReq.data);
+
+      this.setState({
+        data: dataAxios.data[0],
+        show: true,
+        hammoda: expressReq.data,
+      });
+      console.log(this.state.hammoda);
+
+    } catch (error) {
+      console.log('not working');
+    }
+
+    // console.log(ti);
   };
 
   updateUrl = (e) => {
@@ -33,8 +49,14 @@ export class App extends React.Component {
   render() {
     return (
       <div>
-        <FormFun data={this.state.data.display_name} updateUrl={this.updateUrl} urlLocation={this.urlLocation}/>
-        <ImgUrl data={this.state.data}/>
+        <FormFun data={this.state.data.display_name} updateUrl={this.updateUrl} urlLocation={this.urlLocation} />
+        {this.state.show &&
+          <>
+            <ImgUrl data={this.state.data} date={this.state.data.display_name} />
+
+            <WeatherData test ={this.state.hammoda} />
+          </>
+        }
       </div >
     );
   }
@@ -42,3 +64,4 @@ export class App extends React.Component {
 
 export default App;
 
+//weather={this.state.hammoda}
