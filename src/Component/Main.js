@@ -11,16 +11,18 @@ export class App extends React.Component {
       SQUrl: '',
       data: '',
       show: false,
-      hammoda: {}
+      hammoda: {},
+      myApiUrl: process.env.REACT_APP_MY_API_URL,
+      myKey: process.env.REACT_APP_LOCATION_API_KEY
     };
   }
 
   urlLocation = async (e) => {
     e.preventDefault();
     try {
-      const url = `https://us1.locationiq.com/v1/search.php?key=pk.d90f234971c4a2b3939403bad7bbd862&q=${this.state.SQUrl}&format=json`;
+      const url = `https://us1.locationiq.com/v1/search.php?key=${this.state.myKey}&q=${this.state.SQUrl}&format=json`;
 
-      const expressWeatherUrl = `http://localhost:4444/weather`;
+      const expressWeatherUrl = `${this.state.myApiUrl}weather`;
       const expressReq = await axios.get(expressWeatherUrl);
 
       const dataAxios = await axios.get(url);
