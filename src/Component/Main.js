@@ -20,7 +20,7 @@ export class App extends React.Component {
     try {
       const url = `https://us1.locationiq.com/v1/search.php?key=pk.d90f234971c4a2b3939403bad7bbd862&q=${this.state.SQUrl}&format=json`;
 
-      const expressWeatherUrl = `http://localhost:3333/weather`;
+      const expressWeatherUrl = `http://localhost:4444/weather`;
       const expressReq = await axios.get(expressWeatherUrl);
 
       const dataAxios = await axios.get(url);
