@@ -13,7 +13,8 @@ export class App extends React.Component {
       show: false,
       hammoda: {},
       myApiUrl: process.env.REACT_APP_MY_API_URL,
-      myKey: process.env.REACT_APP_LOCATION_API_KEY
+      myKey: process.env.REACT_APP_LOCATION_API_KEY,
+      BackEndUrl : 'http://localhost:4445/'
     };
   }
 
@@ -21,23 +22,43 @@ export class App extends React.Component {
     e.preventDefault();
     try {
       const url = `https://us1.locationiq.com/v1/search.php?key=${this.state.myKey}&q=${this.state.SQUrl}&format=json`;
+      const dataAxios = await axios.get(url); // from bake end res.send(arrayOf);
+      let lat = dataAxios.data[0].lat;
+      let lon = dataAxios.data[0].lon;
 
-      const expressWeatherUrl = `${this.state.myApiUrl}weather`;
-      const expressReq = await axios.get(expressWeatherUrl);
+      let taName = 'fadi';
 
-      const dataAxios = await axios.get(url);
 
-      console.log(expressReq.data);
+      // console.log(lat, lon);
 
-      this.setState({
-        data: dataAxios.data[0],
-        show: true,
-        hammoda: expressReq.data,
-      });
-      console.log(this.state.hammoda);
+      const weatherDateApi =await axios.get(this.state.BackEndUrl + `weather?lat=${lat}&lon=${lon}&name=${taName}`);
+
+      console.log(weatherDateApi.data);
+
+      // (dataAxios => {
+      //   console.log(dataAxios.data[0].lat);
+
+      //   axios.get(this.state.BackEndUrl + `/wather?lat=${dataAxios.data[0].lat}$lon=${dataAxios.data[0].lon}`).then(weatherDataApi=>{
+      //     console.log(weatherDataApi);
+      //   });
+      // });
+      //   // http://localhost:4445/weather?lat=${dataAxios.data[0].lat}&lon=${dataAxios.data[0].lon}
+      // const expressWeatherUrl = `${this.state.myApiUrl}weather`;
+      // const expressReq = await axios.get(expressWeatherUrl);
+
+      // console.log(expressReq.data);
+
+      // this.setState({
+      //   data: dataAxios.data[0],
+      //   show: true,
+      //   hammoda: expressReq.data,
+      // });
+      // console.log(this.state.hammoda);
 
     } catch (error) {
       console.log('not working');
+      console.log(error);
+      console.log('not working2');
     }
 
     // console.log(ti);
