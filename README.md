@@ -42,4 +42,4 @@ Finish time: 4
 
 Actual time needed to complete: 17
 
-![img](./Component/assets/work-fllow 2.jpg)
+![img](./src/Component/assets/work-fllow 2.jpg)
