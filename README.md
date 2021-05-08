@@ -9,18 +9,18 @@ Web App for Locate on the map with a stunning, simple, and easy-to-use gui, My e
 
 ## Getting Started
 
-git clone https://github.com/MKAbuMattar/city-explorer.git
+git clone https://github.com/AmeenBassamSaleh/lab6/tree/lab9.1
 
-cd city-explorer
+cd lab6
 
 npm i
 
 npm start
 My Own API
 
-git clone https://github.com/MKAbuMattar/city-explorer-express-server.git
+git clone https://github.com/AmeenBassamSaleh/city-explorer-api/tree/alab9.1
 
-cd city-explorer-express-server
+cd city-explorer-api
 
 npm i
 
@@ -70,7 +70,7 @@ Finish time: 12
 
 Actual time needed to complete: 8
 
-![img](./Component/assets/work-fllow2.jpg)
+![img](https://github.com/AmeenBassamSaleh/lab6/blob/lab9.1/src/Component/assets/jsonFile.PNG?raw=true)
 
 ///////////////////////////////////////////////
 
@@ -84,7 +84,7 @@ Finish time: 4
 
 Actual time needed to complete: 17
 
-![img](./Component/assets/jsonFile.PNG)
+![img](https://github.com/AmeenBassamSaleh/lab6/blob/lab9.1/src/Component/assets/work-fllow2.jpg?raw=true)
 
 /////////////////////////////////////////////
 
