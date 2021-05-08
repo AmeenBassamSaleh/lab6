@@ -7,8 +7,9 @@ export class MovData extends React.Component {
       this.props.mov.data.map((a, index) => {
         return (
           <div key={index}>
-            <p>{a.dataMovi} {a.overview} {a.poster_path}</p>
-            {/* <img src={`https://maps.locationiq.com/v3/staticmap?key=pk.d36871f015649f915282f374cff76628&q&center=${this.props.data.lat},${this.props.data.lon}&zoom=10`} alt='' /> */}
+            <p>{a.dataMovi} {a.overview}</p>
+
+            <img src={`https://image.tmdb.org/t/p/original${a.poster_path}`} alt=''/>
 
           </div>
         );
